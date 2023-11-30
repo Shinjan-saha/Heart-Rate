@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-audio_file = 'f0101.wav'
+audio_file = 'a0402.wav'
 
 
 y, sr = librosa.load(audio_file)
