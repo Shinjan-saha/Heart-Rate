@@ -3,13 +3,12 @@ import librosa.display
 import matplotlib.pyplot as plt
 import numpy as np
 
-
 audio_file = 'f0101.wav'
 
 
 y, sr = librosa.load(audio_file)
 
-# Waveform
+# waveform
 plt.figure(figsize=(14, 5))
 librosa.display.waveshow(y, sr=sr)
 plt.title('Waveform')
@@ -17,12 +16,13 @@ plt.xlabel('Time (s)')
 plt.ylabel('Amplitude')
 plt.show()
 
-# Spectogram
+#  Mel spectrogram
 plt.figure(figsize=(14, 5))
-D = librosa.amplitude_to_db(librosa.stft(y), ref=np.max)
-librosa.display.specshow(D, sr=sr, x_axis='time', y_axis='log')
-plt.title('Spectrogram')
+S = librosa.feature.melspectrogram(y=y, sr=sr, n_mels=128, fmax=8000)  
+S_DB = librosa.power_to_db(S, ref=np.max)
+librosa.display.specshow(S_DB, sr=sr, x_axis='time', y_axis='mel')
+plt.title('Mel Spectrogram')
 plt.xlabel('Time (s)')
-plt.ylabel('Frequency (Hz)')
+plt.ylabel('Mel Frequency')
 plt.colorbar(format='%+2.0f dB')
 plt.show()
