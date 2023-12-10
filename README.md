@@ -23,3 +23,8 @@
 
 
 <img src="./output_plots/spectrogram_a0001.png">
+
+
+## PDF:-
+[All Plots in a PDF](https://github.com/Shinjan-saha/Heart-Rate/blob/main/output_plots/all_plots_compressed.pdf)
+
